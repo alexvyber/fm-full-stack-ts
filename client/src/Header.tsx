@@ -1,5 +1,6 @@
 import * as React from "react"
-import { ClientUserStatistics, ClientUser } from "./client-types"
+
+import { ClientUser, ClientUserStatistics } from "./client-types"
 import CurrentUserSummary from "./CurrentUserSummary"
 
 interface DetailedUser extends ClientUser {
@@ -12,7 +13,6 @@ export interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ currentUser }) => {
-  console.log("🚀 ~ currentUser:", currentUser)
   const { avatarUrl, name, handle, stats, coverUrl } = currentUser
   const { followerCount = 0, tweetCount = 0, followingCount = 0 } = stats || {}
 

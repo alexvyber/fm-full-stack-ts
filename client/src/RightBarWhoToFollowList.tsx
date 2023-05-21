@@ -1,13 +1,12 @@
 import * as React from "react"
+
 import { ClientSuggestion } from "./client-types"
 
 export interface RightBarWhoToFollowListProps {
   suggestions: ClientSuggestion[]
 }
 
-const RightBarWhoToFollowList: React.FC<RightBarWhoToFollowListProps> = ({
-  suggestions,
-}) => {
+const RightBarWhoToFollowList: React.FC<RightBarWhoToFollowListProps> = ({ suggestions }) => {
   return (
     <section>
       <header>

@@ -13,29 +13,18 @@ const TweetMessage: React.FC<{ message: string }> = ({ message }) => {
         if (YOUTUBE_URL_REGEXP.test(part)) {
           return (
             <div key={index} className="iframe-container">
-              <iframe
-                src={part}
-                allow="encrypted-media"
-                allowFullScreen
-                frameBorder="0"></iframe>
+              <iframe src={part} allow="encrypted-media" allowFullScreen frameBorder="0"></iframe>
             </div>
           )
         } else if (IMAGE_URL_REGEXP.test(part)) {
           return (
-            <img
-              style={{ maxHeight: 600, width: "auto", margin: "auto" }}
-              key={index}
-              src={part}
-            />
+            <img style={{ maxHeight: 600, width: "auto", margin: "auto" }} key={index} src={part} />
           )
         } else
           return (
             <span key={index}>
               {part[0] === "@" ? (
-                <a
-                  className="mention"
-                  href="#"
-                  onClick={e => e.preventDefault()}>
+                <a className="mention" href="#" onClick={e => e.preventDefault()}>
                   {part}
                 </a>
               ) : (

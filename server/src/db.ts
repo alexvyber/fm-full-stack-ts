@@ -217,9 +217,7 @@ class Db {
     return newTrend
   }
 
-  async createTweet(
-    tweetProps: Pick<DbTweet, "message" | "userId">
-  ): Promise<DbTweet> {
+  async createTweet(tweetProps: Pick<DbTweet, "message" | "userId">): Promise<DbTweet> {
     const tweets = this.db.get("tweets")
     const tweet: DbTweet = {
       ...tweetProps,
@@ -245,9 +243,7 @@ class Db {
     return user
   }
 
-  async createFavorite(
-    favoriteProps: Pick<DbFavorite, "tweetId" | "userId">
-  ): Promise<DbFavorite> {
+  async createFavorite(favoriteProps: Pick<DbFavorite, "tweetId" | "userId">): Promise<DbFavorite> {
     const user = this.getUserById(favoriteProps.userId)
     const tweet = this.getTweetById(favoriteProps.tweetId)
     if (!user) throw new Error("User does not exist")
@@ -262,20 +258,19 @@ class Db {
     await favorites.push(favorite).write()
     return favorite
   }
-  async deleteFavorite(
-    favoriteProps: Pick<DbFavorite, "tweetId" | "userId">
-  ): Promise<DbFavorite> {
+  async deleteFavorite(favoriteProps: Pick<DbFavorite, "tweetId" | "userId">): Promise<DbFavorite> {
     const user = this.getUserById(favoriteProps.userId)
     const tweet = this.getTweetById(favoriteProps.tweetId)
+
     if (!user) throw new Error("User does not exist")
     if (!tweet) throw new Error("Tweet does not exist")
+
     const favorites = this.db.get("favorites")
 
-    const deleted = favorites.remove(
-      f => f.tweetId === tweet.id && f.userId === user.id
-    )
+    const deleted = favorites.remove(f => f.tweetId === tweet.id && f.userId === user.id)
 
     await this.db.write()
+
     return deleted.first().value()
   }
 

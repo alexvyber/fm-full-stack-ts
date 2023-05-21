@@ -1,22 +1,19 @@
+import * as React from "react"
 import { faCog } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from "react"
-import { ClientHashtagTrend, ClientTrend } from "./client-types"
+
+import { HashtagTrend, Trend } from "./generated/graphql"
 import { integerWithCommas } from "./utils/number"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isHashtagTrend(arg: any): arg is ClientHashtagTrend {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  return typeof arg.hashtag === "string"
+function isHashtagTrend(arg: Trend): arg is HashtagTrend {
+  return arg.__typename === "HashtagTrend"
 }
 
 export interface RightBarTrendingListProps {
-  trends: ClientTrend[]
+  trends: Trend[]
 }
 
-const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({
-  trends,
-}) => {
+const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({ trends }) => {
   return (
     <section>
       <header>
@@ -28,11 +25,7 @@ const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({
       <main>
         {trends.map((trend, index) => {
           return (
-            <a
-              href="#"
-              className="trend"
-              key={index}
-              onClick={e => e.preventDefault()}>
+            <a href="#" className="trend" key={index} onClick={e => e.preventDefault()}>
               <div className="trend-num">
                 <span>{index + 1} - Trending</span>
               </div>

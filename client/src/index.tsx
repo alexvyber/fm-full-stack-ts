@@ -1,14 +1,9 @@
 import * as React from "react"
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client"
 import * as ReactDOM from "react-dom"
 import { ErrorBoundary, FallbackProps } from "react-error-boundary"
-import App from "./App"
 
-import {
-  ApolloClient,
-  ApolloProvider,
-  HttpLink,
-  InMemoryCache,
-} from "@apollo/client"
+import App from "./App"
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -17,10 +12,7 @@ const client = new ApolloClient({
 
 const app = document.getElementById("app")
 
-const ErrorFallback: React.ComponentType<FallbackProps> = ({
-  error,
-  resetErrorBoundary,
-}) => {
+const ErrorFallback: React.ComponentType<FallbackProps> = ({ error, resetErrorBoundary }) => {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -47,7 +39,8 @@ ReactDOM.render(
     FallbackComponent={ErrorFallback}
     onReset={() => {
       // reset the state of your app so the error doesn't happen again
-    }}>
+    }}
+  >
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>

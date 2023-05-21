@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import { ClientSearchResult } from "./client-types"
 
 const SEARCH_TOPICS: ClientSearchResult[] = [
@@ -32,8 +33,7 @@ const RightBarSearch: React.FC<RightBarSearchProps> = ({ render }) => {
             return r.toLowerCase().includes(fragment)
           } else {
             return (
-              r.handle.toLowerCase().includes(fragment) ||
-              r.name.toLowerCase().includes(fragment)
+              r.handle.toLowerCase().includes(fragment) || r.name.toLowerCase().includes(fragment)
             )
           }
         })
@@ -53,10 +53,7 @@ const RightBarSearch: React.FC<RightBarSearchProps> = ({ render }) => {
         />
         <i className="fas fa-search"></i>
       </div>
-      <div
-        className={
-          results.length > 0 ? "search-results open" : "search-results"
-        }>
+      <div className={results.length > 0 ? "search-results open" : "search-results"}>
         {results.map(result => render(result))}
         <hr />
         <div className="result">

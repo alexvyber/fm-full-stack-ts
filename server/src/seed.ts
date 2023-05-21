@@ -87,8 +87,7 @@ export async function seedDb(db: Db) {
     const [tweet1, tweet2, tweet3, tweet4] = [
       await db.createTweet({
         userId: fem.id,
-        message:
-          "Hey, check this out! https://www.youtube.com/embed/Q1owo3t6CZ8",
+        message: "Hey, check this out! https://www.youtube.com/embed/Q1owo3t6CZ8",
       }),
       await db.createTweet({
         userId: marc.id,
@@ -108,6 +107,19 @@ export async function seedDb(db: Db) {
         userId: lisa.id,
         message: `@FrontendMasters I'm still having trouble with the login captchas. Am I supposed to take a class before solving this one? http://localhost:3000/static/captcha-4.jpg`,
       }),
+
+      await db.createTweet({
+        userId: lisa.id,
+        message: `@FrontendMasters I'm still having trouble with the login captchas. Am I supposed to take a class before solving this one? http://localhost:3000/static/captcha-4.jpg`,
+      }),
+      await db.createTweet({
+        userId: lisa.id,
+        message: `@FrontendMasters I'm still having trouble with the login captchas. Am I supposed to take a class before solving this one? http://localhost:3000/static/captcha-4.jpg`,
+      }),
+      await db.createTweet({
+        userId: lisa.id,
+        message: `some shit`,
+      }),
     ]
     await db.createFavorite({ userId: fem.id, tweetId: tweet2.id })
     await db.createFavorite({ userId: fem.id, tweetId: tweet4.id })
@@ -118,5 +130,8 @@ export async function seedDb(db: Db) {
     await db.createFavorite({ userId: mike.id, tweetId: tweet4.id })
     await db.createFavorite({ userId: lisa.id, tweetId: tweet2.id })
     await db.createFavorite({ userId: lisa.id, tweetId: tweet4.id })
+
+    await db.createFavorite({ userId: _student.id, tweetId: tweet2.id })
+    await db.createFavorite({ userId: _student.id, tweetId: tweet4.id })
   }
 }

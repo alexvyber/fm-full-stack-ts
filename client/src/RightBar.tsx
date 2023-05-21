@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import { ClientSuggestion, ClientTrend } from "./client-types"
 import RightBarSearch from "./RightBarSearch"
 import RightBarTrendingList from "./RightBarTrendingList"

@@ -1,5 +1,6 @@
-import { CLIENT_ROOT_FOLDER_PATH } from "./constants"
 import * as execa from "execa"
+
+import { CLIENT_ROOT_FOLDER_PATH } from "./constants"
 
 export function watchClientBuild() {
   execa

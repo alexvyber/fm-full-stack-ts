@@ -1,15 +1,13 @@
 import { ResolverContext } from "resolvers"
 import { QueryResolvers } from "resolvers-types.generated"
 
-import { tweetTransform } from "../transforms"
+import { trendTransform, tweetTransform } from "../transforms"
 
 export const Query: QueryResolvers<ResolverContext> = {
   currentUser: (_, __, { db }) => {
     const [firstUser] = db.getAllUsers()
     if (!firstUser)
-      throw new Error(
-        "currentUser was requested, but there are no users in the database"
-      )
+      throw new Error("currentUser was requested, but there are no users in the database")
 
     return firstUser
   },
@@ -33,5 +31,9 @@ export const Query: QueryResolvers<ResolverContext> = {
       dbTweetCache[tweet.id] = tweet
       return tweetTransform(tweet)
     })
+  },
+
+  trends: (_, __, { db }) => {
+    return db.getAllTrends().map(trendTransform)
   },
 }

@@ -1,3 +1,4 @@
+import * as React from "react"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import {
   faBell,
@@ -7,7 +8,7 @@ import {
   faHashtag,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from "react"
+
 import { ClientUser } from "./client-types"
 
 export interface LeftSidebarProps {
@@ -22,7 +23,8 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
       <div
         id="more-popout-overlay"
         className={isOpen ? "toggle" : ""}
-        onMouseEnter={() => setIsOpen(false)}></div>
+        onMouseEnter={() => setIsOpen(false)}
+      ></div>
       <div id="more-popout" className={isOpen ? "nav-open" : "nav-closed"}>
         <div className="nav-item">
           <div className="icon-container">
@@ -87,7 +89,8 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item home"
           aria-label="Home"
           data-balloon-pos="right"
-          data-balloon-blunt>
+          data-balloon-blunt
+        >
           <div className="icon-container">
             <FontAwesomeIcon icon={faTwitter} />
           </div>
@@ -96,11 +99,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
             <p>Home</p>
           </div>
         </div>
-        <div
-          className="nav-item"
-          aria-label="Explore"
-          data-balloon-pos="right"
-          data-balloon-blunt>
+        <div className="nav-item" aria-label="Explore" data-balloon-pos="right" data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faHashtag} />
           </div>
@@ -112,7 +111,8 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Notifications"
           data-balloon-pos="right"
-          data-balloon-blunt>
+          data-balloon-blunt
+        >
           <div className="icon-container">
             <FontAwesomeIcon icon={faBell} />
           </div>
@@ -120,11 +120,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
             <p>Notifications</p>
           </div>
         </div>
-        <div
-          className="nav-item"
-          aria-label="Messages"
-          data-balloon-pos="right"
-          data-balloon-blunt>
+        <div className="nav-item" aria-label="Messages" data-balloon-pos="right" data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faEnvelope} />
           </div>
@@ -136,7 +132,8 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Bookmarks"
           data-balloon-pos="right"
-          data-balloon-blunt>
+          data-balloon-blunt
+        >
           <div className="icon-container">
             <FontAwesomeIcon icon={faBookmark} />
           </div>
@@ -144,11 +141,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
             <p>Bookmarks</p>
           </div>
         </div>
-        <div
-          className="nav-item"
-          aria-label="Profile"
-          data-balloon-pos="right"
-          data-balloon-blunt>
+        <div className="nav-item" aria-label="Profile" data-balloon-pos="right" data-balloon-blunt>
           <div className="icon-container">
             <img src={currentUser.avatarUrl} />
           </div>
@@ -156,11 +149,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
             <p>Profile</p>
           </div>
         </div>
-        <button
-          className="nav-item"
-          aria-label="More"
-          data-balloon-pos="right"
-          data-balloon-blunt>
+        <button className="nav-item" aria-label="More" data-balloon-pos="right" data-balloon-blunt>
           <span className="icon-container">
             <FontAwesomeIcon icon={faEllipsisH} />
           </span>

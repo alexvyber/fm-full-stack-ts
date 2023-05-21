@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import { humanFriendlyNumber } from "./utils/number"
 
 export interface CurrentUserSummaryProps {

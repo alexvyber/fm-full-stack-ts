@@ -1,28 +1,47 @@
-import {
-  faImage,
-  faFilm,
-  faChartBar,
-  faComment,
-} from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import * as React from "react"
+import { gql } from "@apollo/client"
+import { faChartBar, faComment, faFilm, faImage } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import { GET_CURRENT_USER } from "./App"
+import { useCreateNewTweetMutation } from "./generated/graphql"
+import { GET_TIMELINE_TWEETS } from "./Timeline"
+
+export const CREATE_NEW_TWEET = gql`
+  mutation CreateNewTweet($userId: String!, $body: String!) {
+    createTweet(userId: $userId, body: $body) {
+      id
+    }
+  }
+`
 
 export interface ComposePanelProps {
   currentUser: { id: string }
 }
-const ComposePanel: React.FC<ComposePanelProps> = ({ currentUser }) => {
-  function createNewTweet(body: string) {
-    console.log("creating new tweet", { body, currentUser })
-  }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const textarea = e.currentTarget.querySelector("textarea")
+const ComposePanel: React.FC<ComposePanelProps> = ({ currentUser }) => {
+  const [createNewTweet, { error }] = useCreateNewTweetMutation()
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const textarea = event.currentTarget.querySelector("textarea")
+
     if (!textarea) throw new Error("No textarea found")
-    const body = textarea.value
-    createNewTweet(body)
+
+    await createNewTweet({
+      variables: {
+        body: textarea.value,
+        userId: currentUser.id,
+      },
+      refetchQueries: [GET_TIMELINE_TWEETS, GET_CURRENT_USER],
+    })
+
     textarea.value = ""
   }
+
+  if (error) return <p>Error creating new tweet: {error.message}</p>
+
   return (
     <div className="new-tweet">
       <form onSubmit={handleSubmit}>
