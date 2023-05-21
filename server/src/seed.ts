@@ -21,6 +21,7 @@ export async function seedDb(db: Db) {
     )
     await db.write()
   }
+
   if (db.getAllSuggestions().length === 0) {
     await db.createSuggestion({
       name: "TypeScript Project",
@@ -48,11 +49,12 @@ export async function seedDb(db: Db) {
     })
     await db.write()
   }
+
   if (db.getAllUsers().length === 0) {
     const [_student, mike, lisa, marc, fem] = [
       await db.createUser({
-        name: "Stu Dent",
-        handle: "student",
+        name: "Some Shit User",
+        handle: "asdfasdfasdf",
         avatarUrl: "http://localhost:3000/static/egg.jpeg",
         coverUrl: "http://localhost:3000/static/beach.jpeg",
       }),

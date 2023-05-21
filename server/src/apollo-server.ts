@@ -25,14 +25,22 @@ export async function createApolloServer(
       resolvers,
     }),
 
-    context: (): ResolverContext => ({ db }),
+    context: (): ResolverContext => ({
+      db,
+      dbTweetCache: {},
+      dbTweetToFavoriteCountMap: {},
+      dbUserCache: {},
+    }),
 
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   })
 
   await server.start()
 
-  server.applyMiddleware({ app })
+  server.applyMiddleware({
+    app,
+    cors: {},
+  })
 
   return server
 }

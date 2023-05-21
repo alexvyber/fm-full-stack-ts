@@ -12,11 +12,14 @@ export interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ currentUser }) => {
+  console.log("🚀 ~ currentUser:", currentUser)
   const { avatarUrl, name, handle, stats, coverUrl } = currentUser
   const { followerCount = 0, tweetCount = 0, followingCount = 0 } = stats || {}
+
   const style: React.CSSProperties = coverUrl
     ? { backgroundImage: `url('${coverUrl}')`, backgroundPosition: "center" }
     : { backgroundColor: "#339" }
+
   return (
     <header className="nav-closed" style={style}>
       <div className="wrapper">
