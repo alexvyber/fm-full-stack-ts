@@ -47,10 +47,7 @@
       },
       "env": { "node": true },
       "rules": {
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { "ignores": ["modules"] }
-        ]
+        "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }]
       }
     },
     {
@@ -61,10 +58,7 @@
       },
       "env": { "node": true },
       "rules": {
-        "node/no-unsupported-features/es-syntax": [
-          "error",
-          { "ignores": ["modules"] }
-        ],
+        "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/ban-types": "off"
       }

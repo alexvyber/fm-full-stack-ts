@@ -32,6 +32,8 @@
     "shared"
   ],
   "devDependencies": {
+    "@alexvyber/prettier-config": "^1.0.1",
+    "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@parcel/core": "^2.3.2",
     "@parcel/transformer-sass": "2.3.2",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
@@ -41,6 +43,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.29.4",
     "prettier": "^2.6.0",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "process": "^0.11.10"
   },
   "engines": {
