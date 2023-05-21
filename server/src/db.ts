@@ -292,4 +292,4 @@ class Db {
   }
 }
 
-export default Db
+export { Db as default, Db }
