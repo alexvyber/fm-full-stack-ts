@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { ClientSuggestion, ClientTrend } from './client-types';
-import RightBarSearch from './RightBarSearch';
-import RightBarTrendingList from './RightBarTrendingList';
-import RightBarWhoToFollowList from './RightBarWhoToFollowList';
+import * as React from "react"
+import { ClientSuggestion, ClientTrend } from "./client-types"
+import RightBarSearch from "./RightBarSearch"
+import RightBarTrendingList from "./RightBarTrendingList"
+import RightBarWhoToFollowList from "./RightBarWhoToFollowList"
 
 export interface RightBarProps {
-  trends: ClientTrend[];
-  suggestions: ClientSuggestion[];
+  trends: ClientTrend[]
+  suggestions: ClientSuggestion[]
 }
 
 const RightBar: React.FC<RightBarProps> = ({ trends, suggestions }) => (
   <div id="right">
     <RightBarSearch
-      render={(result) =>
-        typeof result === 'string' ? (
+      render={result =>
+        typeof result === "string" ? (
           <div className="result">
             <p>{result}</p>
           </div>
@@ -31,6 +31,6 @@ const RightBar: React.FC<RightBarProps> = ({ trends, suggestions }) => (
     <RightBarTrendingList trends={trends} />
     <RightBarWhoToFollowList suggestions={suggestions} />
   </div>
-);
+)
 
-export default RightBar;
+export default RightBar

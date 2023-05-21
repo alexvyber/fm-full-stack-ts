@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800|Roboto:300,400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800|Roboto:300,400,500,700");
 * {
   outline-width: 0 !important;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
 body,
 html {
@@ -253,7 +253,7 @@ nav {
 }
 
 #app > div > header {
-  background: url('http://localhost:3000/static/cover.jpg') center/cover;
+  background: url("http://localhost:3000/static/cover.jpg") center/cover;
   display: flex;
   align-items: center;
   position: relative;
@@ -311,7 +311,7 @@ nav {
     }
   }
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -468,7 +468,7 @@ nav {
         font-size: 12px;
         opacity: 0.5;
         &:before {
-          content: '';
+          content: "";
           height: 2px;
           width: 2px;
           margin-right: 10px;

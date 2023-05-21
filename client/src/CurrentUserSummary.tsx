@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { humanFriendlyNumber } from './utils/number';
+import * as React from "react"
+import { humanFriendlyNumber } from "./utils/number"
 
 export interface CurrentUserSummaryProps {
-  tweetCount: number;
-  followerCount: number;
-  followingCount: number;
+  tweetCount: number
+  followerCount: number
+  followingCount: number
 }
 
 const CurrentUserSummary: React.FC<CurrentUserSummaryProps> = ({
@@ -26,6 +26,6 @@ const CurrentUserSummary: React.FC<CurrentUserSummaryProps> = ({
       <h3>{humanFriendlyNumber(followerCount)}</h3>
     </a>
   </div>
-);
+)
 
-export default CurrentUserSummary;
+export default CurrentUserSummary

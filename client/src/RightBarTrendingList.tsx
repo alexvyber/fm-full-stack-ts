@@ -1,17 +1,17 @@
-import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
-import { ClientHashtagTrend, ClientTrend } from './client-types';
-import { integerWithCommas } from './utils/number';
+import { faCog } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from "react"
+import { ClientHashtagTrend, ClientTrend } from "./client-types"
+import { integerWithCommas } from "./utils/number"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isHashtagTrend(arg: any): arg is ClientHashtagTrend {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  return typeof arg.hashtag === 'string';
+  return typeof arg.hashtag === "string"
 }
 
 export interface RightBarTrendingListProps {
-  trends: ClientTrend[];
+  trends: ClientTrend[]
 }
 
 const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({
@@ -32,8 +32,7 @@ const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({
               href="#"
               className="trend"
               key={index}
-              onClick={(e) => e.preventDefault()}
-            >
+              onClick={e => e.preventDefault()}>
               <div className="trend-num">
                 <span>{index + 1} - Trending</span>
               </div>
@@ -55,15 +54,15 @@ const RightBarTrendingList: React.FC<RightBarTrendingListProps> = ({
                       <img src={trend.quote.imageUrl} />
                     </div>
                   ) : (
-                    ''
+                    ""
                   )}
                 </div>
               )}
             </a>
-          );
+          )
         })}
       </main>
     </section>
-  );
-};
-export default RightBarTrendingList;
+  )
+}
+export default RightBarTrendingList

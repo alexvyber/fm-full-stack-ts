@@ -1,30 +1,29 @@
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import {
   faBell,
   faBookmark,
   faEllipsisH,
   faEnvelope,
   faHashtag,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
-import { ClientUser } from './client-types';
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from "react"
+import { ClientUser } from "./client-types"
 
 export interface LeftSidebarProps {
-  currentUser: ClientUser;
+  currentUser: ClientUser
 }
 
 const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <div id="left-overlay-container">
       <div
         id="more-popout-overlay"
-        className={isOpen ? 'toggle' : ''}
-        onMouseEnter={() => setIsOpen(false)}
-      ></div>
-      <div id="more-popout" className={isOpen ? 'nav-open' : 'nav-closed'}>
+        className={isOpen ? "toggle" : ""}
+        onMouseEnter={() => setIsOpen(false)}></div>
+      <div id="more-popout" className={isOpen ? "nav-open" : "nav-closed"}>
         <div className="nav-item">
           <div className="icon-container">
             <img src={currentUser.avatarUrl} />
@@ -88,8 +87,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item home"
           aria-label="Home"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faTwitter} />
           </div>
@@ -102,8 +100,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Explore"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faHashtag} />
           </div>
@@ -115,8 +112,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Notifications"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faBell} />
           </div>
@@ -128,8 +124,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Messages"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faEnvelope} />
           </div>
@@ -141,8 +136,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Bookmarks"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <FontAwesomeIcon icon={faBookmark} />
           </div>
@@ -154,8 +148,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="Profile"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <div className="icon-container">
             <img src={currentUser.avatarUrl} />
           </div>
@@ -167,8 +160,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
           className="nav-item"
           aria-label="More"
           data-balloon-pos="right"
-          data-balloon-blunt
-        >
+          data-balloon-blunt>
           <span className="icon-container">
             <FontAwesomeIcon icon={faEllipsisH} />
           </span>
@@ -176,7 +168,7 @@ const LeftSidebar: React.FC<LeftSidebarProps> = ({ currentUser }) => {
         </button>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default LeftSidebar;
+export default LeftSidebar

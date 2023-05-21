@@ -1,2 +1,15 @@
-**/dist
-**/node_modules
+cache
+.cache
+package.json
+package-lock.json
+public
+CHANGELOG.md
+.yarn
+dist
+node_modules
+.next
+build
+.contentlayer
+.ladle
+__generated__
+assets

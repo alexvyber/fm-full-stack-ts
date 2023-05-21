@@ -1,34 +1,34 @@
 import {
   faComment,
   faHeart as faHeartHollow,
-} from '@fortawesome/free-regular-svg-icons';
+} from "@fortawesome/free-regular-svg-icons"
 import {
   faEllipsisH,
   faRetweet,
   faHeart as faHeartSolid,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { formatDistanceToNow } from 'date-fns';
-import * as React from 'react';
-import TweetMessage from './TweetMessage';
-import { humanFriendlyNumber } from './utils/number';
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { formatDistanceToNow } from "date-fns"
+import * as React from "react"
+import TweetMessage from "./TweetMessage"
+import { humanFriendlyNumber } from "./utils/number"
 
 export interface TweetProps {
-  currentUserId: string;
+  currentUserId: string
   tweet: {
-    id: string;
-    isFavorited: boolean;
-    message: string;
-    createdAt: Date;
+    id: string
+    isFavorited: boolean
+    message: string
+    createdAt: Date
     author: {
-      name: string;
-      handle: string;
-      avatarUrl: string;
-    };
-    favoriteCount: number;
-    retweetCount: number;
-    commentCount: number;
-  };
+      name: string
+      handle: string
+      avatarUrl: string
+    }
+    favoriteCount: number
+    retweetCount: number
+    commentCount: number
+  }
 }
 
 const Tweet: React.FC<TweetProps> = ({ tweet, currentUserId }) => {
@@ -41,13 +41,13 @@ const Tweet: React.FC<TweetProps> = ({ tweet, currentUserId }) => {
     commentCount,
     isFavorited,
     author: { name, handle, avatarUrl },
-  } = tweet;
-  const handleFavoriteClick: React.MouseEventHandler<HTMLButtonElement> = (
-    _evt
-  ) => {
-    if (isFavorited) console.log('Unfavorite', { tweet, currentUserId });
-    else console.log('Favorite', { tweet, currentUserId });
-  };
+  } = tweet
+  const handleFavoriteClick: React.MouseEventHandler<
+    HTMLButtonElement
+  > = _evt => {
+    if (isFavorited) console.log("Unfavorite", { tweet, currentUserId })
+    else console.log("Favorite", { tweet, currentUserId })
+  }
 
   return (
     <div className="tweet">
@@ -65,17 +65,17 @@ const Tweet: React.FC<TweetProps> = ({ tweet, currentUserId }) => {
         <TweetMessage message={message} />
         <div className="btns">
           <button className="blue">
-            <FontAwesomeIcon icon={faComment} />{' '}
+            <FontAwesomeIcon icon={faComment} />{" "}
             {humanFriendlyNumber(commentCount)}
           </button>
           <button className="green">
-            <FontAwesomeIcon icon={faRetweet} />{' '}
+            <FontAwesomeIcon icon={faRetweet} />{" "}
             {humanFriendlyNumber(retweetCount)}
           </button>
           <button className="red" onClick={handleFavoriteClick}>
             <FontAwesomeIcon
               icon={isFavorited ? faHeartSolid : faHeartHollow}
-            />{' '}
+            />{" "}
             {humanFriendlyNumber(favoriteCount)}
           </button>
           <button className="blue">
@@ -84,6 +84,6 @@ const Tweet: React.FC<TweetProps> = ({ tweet, currentUserId }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default Tweet;
+  )
+}
+export default Tweet

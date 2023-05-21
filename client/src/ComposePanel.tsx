@@ -3,26 +3,26 @@ import {
   faFilm,
   faChartBar,
   faComment,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from "react"
 
 export interface ComposePanelProps {
-  currentUser: { id: string };
+  currentUser: { id: string }
 }
 const ComposePanel: React.FC<ComposePanelProps> = ({ currentUser }) => {
   function createNewTweet(body: string) {
-    console.log('creating new tweet', { body, currentUser });
+    console.log("creating new tweet", { body, currentUser })
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const textarea = e.currentTarget.querySelector('textarea');
-    if (!textarea) throw new Error('No textarea found');
-    const body = textarea.value;
-    createNewTweet(body);
-    textarea.value = '';
-  };
+    e.preventDefault()
+    const textarea = e.currentTarget.querySelector("textarea")
+    if (!textarea) throw new Error("No textarea found")
+    const body = textarea.value
+    createNewTweet(body)
+    textarea.value = ""
+  }
   return (
     <div className="new-tweet">
       <form onSubmit={handleSubmit}>
@@ -51,6 +51,6 @@ const ComposePanel: React.FC<ComposePanelProps> = ({ currentUser }) => {
         </div>
       </form>
     </div>
-  );
-};
-export default ComposePanel;
+  )
+}
+export default ComposePanel
