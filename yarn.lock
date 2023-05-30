@@ -6334,10 +6334,10 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-error-boundary@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.npmjs.org/react-error-boundary/-/react-error-boundary-3.1.4.tgz"
-  integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
+react-error-boundary@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.0.8.tgz#8c76f0d95852a2421c03a2a6559a76dadc5de3a6"
+  integrity sha512-QI6a1r5KCf12vl8U+aEdbs+WXRA5yS9sMOv6K5ZR6gytXcCJACEkRp7TShgTCja0yg7W6SWFYgXyXVL+EGNP0w==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
